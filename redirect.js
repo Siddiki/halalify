@@ -15,21 +15,20 @@ function makeRequest(url) {
 }
 
 // call the API
-function callAPI(request) {
+function callAPI(request, parseResponse)
+{
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", request, false ); // false for synchronous request
-    xmlHttp.send( null );
-    var response = xmlHttp.responseText;
-    console.log(response);
-    return response;
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            parseResponse(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", request, true); // true for asynchronous
+    xmlHttp.send(null);
 }
 
-// parse response for 401 adult content flag
-function isFlagged {
-//Abdullah todo
-}
-
-// redirect the page
-function redirect {
-// hamza todo
+function parseResponse(xmlResponse){
+    console.log(xmlResponse);
+    // parse response & raise flag - Abdullah
+    // redirect - Hamza
+    return xmlResponse;
 }
