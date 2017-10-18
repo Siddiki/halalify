@@ -10,7 +10,12 @@
   "browser action": {
     "default_icon": "icon.png",
   },
-
+  
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true,
+  },
+  
   "permissions": [
     "webRequest",
     "webRequestBlocking",
