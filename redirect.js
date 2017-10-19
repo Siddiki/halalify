@@ -30,7 +30,10 @@ function callAPI(request, parseResponse)
 function parseResponse(xmlResponse){
     console.log(xmlResponse);
     // parse response & raise flag - Abdullah
+    var isAdult = xmlResponse.search("401");
     // redirect - Hamza
-    location.assign("https://www.quran.com");
+    if (isAdult != -1) {
+        location.assign("https://www.quran.com");
+    }
     return xmlResponse;
 }

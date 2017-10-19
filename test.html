@@ -1,28 +1,37 @@
 <script>
 var API_KEY = "cb8f3c674efccfb2d758dd44d94955c7b32079b8";
 
+url = "http://www.facebook.com/";
+
+// make the API request
 function makeRequest(url) {
     var request = "http://api.mywot.com/0.4/public_link_json2?hosts=".concat(url, "&callback=process&key=", API_KEY);
     console.log(request);
     return request;
 }
 
-var request = makeRequest("http://www.pornhub.com/");
-
-function callAPI(request, callback)
+// call the API
+function callAPI(request, parseResponse)
 {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
+            parseResponse(xmlHttp.responseText);
     }
-    xmlHttp.open("GET", request, true); // true for asynchronous 
+    xmlHttp.open("GET", request, true); // true for asynchronous
     xmlHttp.send(null);
 }
 
-function callback(xmlResponse){
+function parseResponse(xmlResponse){
     console.log(xmlResponse);
+    // parse response & raise flag - Abdullah
+    var isAdult = xmlResponse.search("401");
+    // redirect - Hamza
+    if (isAdult != -1) {
+        location.assign("https://www.quran.com");
+    }
     return xmlResponse;
 }
-response = callAPI(request,callback);
+request = makeRequest(url);
+callAPI(request, parseResponse);
 </script>
