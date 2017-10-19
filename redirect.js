@@ -5,6 +5,7 @@ var API_KEY = "cb8f3c674efccfb2d758dd44d94955c7b32079b8";
 // get URL from click or on request
 function getUrl {
 // hamza todo
+    var URL = location.href;
 }
 
 // make the API request
@@ -30,5 +31,6 @@ function parseResponse(xmlResponse){
     console.log(xmlResponse);
     // parse response & raise flag - Abdullah
     // redirect - Hamza
+    location.assign("https://www.quran.com");
     return xmlResponse;
 }
