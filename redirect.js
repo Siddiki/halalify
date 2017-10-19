@@ -34,7 +34,7 @@ function parseResponse(xmlResponse){
     var isAdult = xmlResponse.search("401");
     // redirect - Hamza
     if (isAdult != -1) {
-        location.assign("https://www.quran.com");
+        location.assign("https://www.siddiki.github.io/halalify");
     }
     return xmlResponse;
 }
