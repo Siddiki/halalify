@@ -1,5 +1,5 @@
 // detect if website is naughty
-console.log("started");
+
 var API_KEY = "cb8f3c674efccfb2d758dd44d94955c7b32079b8";
 
 // get URL from click or on request
@@ -11,7 +11,7 @@ function getUrl() {
 
 // make the API request
 function makeRequest(url) {
-    var request = "https://api.mywot.com/0.4/public_link_json2?hosts=".concat(url, "&callback=process&key=", API_KEY);
+    var request = "http://api.mywot.com/0.4/public_link_json2?hosts=".concat(url, "&callback=process&key=", API_KEY);
     console.log(request);
     return request;
 }
@@ -40,6 +40,6 @@ function parseResponse(xmlResponse){
 }
 
 
-var url = getUrl();
+var url = getURL();
 var request = makeRequest(url);
 callAPI(request, parseResponse);

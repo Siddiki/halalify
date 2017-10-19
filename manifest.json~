@@ -5,12 +5,8 @@
   "description": "Redirect for when shaitan is in your ear and in your pants",
   "version": "0.1",
 
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*"],
-      "js":["redirect.js"]
-    }
-  ],
+  "background": {"scripts":["redirect.js"]},
+
   "browser_action": {
     "default_icon": "icon.png"
   },
